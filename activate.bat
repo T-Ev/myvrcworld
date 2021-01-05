@@ -26,7 +26,7 @@ if not defined _OLD_VIRTUAL_PATH set _OLD_VIRTUAL_PATH=%PATH%
 
 set PATH=%VIRTUAL_ENV%\Scripts;%PATH%
 set FLASK_APP=myvrcworld.py
-flask run
+venv\Scripts\python.exe venv\Scripts\flask.exe run
 :END
 if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" %_OLD_CODEPAGE% > nul
