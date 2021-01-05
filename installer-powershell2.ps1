@@ -1,5 +1,4 @@
 # This is the link to download Python 3.6.7 from Python.org
-if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 # See https://www.python.org/downloads/
 $pythonUrl = "https://www.python.org/ftp/python/3.6.7/python-3.6.7-amd64.exe"
 
