@@ -14,20 +14,22 @@ echo haspython... continuing
 echo creating program folder
 mkdir myvrcworld
 cd myvrcworld
+mkdir static
+cd static
+curl "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/static/myvrcworld.html"
+cd ..
 echo installing venv...
 python -m venv venv
 echo downloading activation script
-if exist ..\activate.bat (
-    echo it exixts
-) else (
-    echo it donte
-)
+curl "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/activate-install.bat"
 echo adding commands to activation Script
 xcopy /Y ..\activate-install.bat venv\Scripts\
-cd ..
-xcopy /Y myvrcworld.py myvrcworld\
-cd myvrcworld
+::cd ..
+::xcopy /Y myvrcworld.py myvrcworld\
+::cd myvrcworld
+curl "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/myvrcworld.py"
 echo downloading launcher
+curl "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/launcher.bat"
 echo launching local server
 start cmd.exe /k "venv\Scripts\activate-install.bat"
 echo launching obs display
