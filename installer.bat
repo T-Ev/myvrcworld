@@ -42,7 +42,7 @@ curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/launcher.bat"
 echo launching local server
 start cmd.exe /k "venv\Scripts\activate-install.bat"
 echo Ready to launch myvrcworld?
-TIMEOUT /T 6
+TIMEOUT /T 10
 echo launching obs display
 python -m webbrowser http://localhost:5000/myvrcworld.html
 echo installation successful!
