@@ -25,10 +25,11 @@ if defined _OLD_VIRTUAL_PATH set PATH=%_OLD_VIRTUAL_PATH%
 if not defined _OLD_VIRTUAL_PATH set _OLD_VIRTUAL_PATH=%PATH%
 
 set PATH=%VIRTUAL_ENV%\Scripts;%PATH%
-call refreshenv
+pause
 curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/requirements.txt"
 venv\Scripts\pip.exe install -r requirements.txt
 set FLASK_APP=myvrcworld.py
+pause
 venv\Scripts\python.exe venv\Scripts\flask.exe run
 :END
 if defined _OLD_CODEPAGE (
