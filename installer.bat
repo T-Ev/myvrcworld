@@ -37,4 +37,6 @@ echo launching local server
 start cmd.exe /k "venv\Scripts\activate-install.bat"
 echo launching obs display
 python -m webbrowser http://localhost:5000/myvrcworld.html
+echo installation successful!
+echo to launch this app in the future use launcher.bat in the folder myvrcworld
 cmd /k

@@ -25,7 +25,7 @@ last_dirsize = len([name for name in os.listdir(_path) if os.path.isfile(os.path
 #pattern = '(\d{4}.*)\sLog.*@@(\d),(\d),(\d),(.*)##'
 pattern = '(\d{4}.*)\sLog.*\[RoomManager\]\sJoining\s(wrld_.*):'
 currentworld="wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd"
-#init
+
 #init scheduler
 def test_job():
     looped_mode()
@@ -48,7 +48,7 @@ def get_world():
     if wrld != "":
         return jsonify({"data":{"name": wrld.name,"authorName":wrld.authorName,"imageUrl":wrld.imageUrl}})
     else:
-        return jsonify({"data":{"name": "","authorName":"","imageUrl":""}})
+        return jsonify({"data":{"name": "Waiting for Player To Join a World","authorName":"Waiting","imageUrl":""}})
 
 @app.route('/worldid')
 def get_worldid():
