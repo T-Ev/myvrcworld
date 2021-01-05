@@ -16,20 +16,20 @@ mkdir myvrcworld
 cd myvrcworld
 mkdir static
 cd static
-curl "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/static/myvrcworld.html"
+curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/static/myvrcworld.html"
 cd ..
 echo installing venv...
 python -m venv venv
 echo downloading activation script
-curl "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/activate-install.bat"
+curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/activate-install.bat"
 echo adding commands to activation Script
 xcopy /Y ..\activate-install.bat venv\Scripts\
 ::cd ..
 ::xcopy /Y myvrcworld.py myvrcworld\
 ::cd myvrcworld
-curl "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/myvrcworld.py"
+curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/myvrcworld.py"
 echo downloading launcher
-curl "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/launcher.bat"
+curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/launcher.bat"
 echo launching local server
 start cmd.exe /k "venv\Scripts\activate-install.bat"
 echo launching obs display
