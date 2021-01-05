@@ -20,10 +20,13 @@ curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/static/myvrcwo
 cd ..
 echo installing venv...
 python -m venv venv
-echo downloading activation script
+echo downloading and installing activation script
+cd venv\Scripts
+del activate.bat
+curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/activate.bat"
 curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/activate-install.bat"
-echo adding commands to activation Script
-xcopy /Y ..\activate-install.bat venv\Scripts\
+cd ..
+cd ..
 ::cd ..
 ::xcopy /Y myvrcworld.py myvrcworld\
 ::cd myvrcworld
