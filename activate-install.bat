@@ -27,7 +27,7 @@ if not defined _OLD_VIRTUAL_PATH set _OLD_VIRTUAL_PATH=%PATH%
 set PATH=%VIRTUAL_ENV%\Scripts;%PATH%
 call refreshenv
 curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/requirements.txt"
-Python\Scripts\pip.exe install -r requirements.txt
+venv\Scripts\pip.exe install -r requirements.txt
 set FLASK_APP=myvrcworld.py
 flask run
 :END
