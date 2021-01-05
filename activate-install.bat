@@ -28,6 +28,7 @@ set PATH=%VIRTUAL_ENV%\Scripts;%PATH%
 curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/requirements.txt"
 venv\Scripts\pip.exe install -r requirements.txt
 set FLASK_APP=myvrcworld.py
+echo INSTALL COMPLETE... STARTING FLASK
 venv\Scripts\python.exe venv\Scripts\flask.exe run
 :END
 if defined _OLD_CODEPAGE (
