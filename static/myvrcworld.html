@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My VRC World</title>
+    <style>
+        body {
+            background-color: #00ff00;
+        }
+        #container {
+            width: 550px;
+            background-color: #1fd1ed;
+            height: 130px;
+            font-family: sans-serif;
+            font-size: 18px;
+            color: yellow;
+            padding: 10px;
+            border-radius: 13px;
+            margin:30px;
+        }
+
+        #container img {
+            height: 100%;
+            margin-right: 10px;
+            vertical-align: top;
+            border-radius: 11px;
+            box-shadow: 0 1px 6px rgba(32,33,36,.28);
+        }
+        #intro {
+            color: white;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        #info {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #title {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        let updateTile = ()=>{
+            fetch("/world").then(response=>response.json()).then(msg=>{
+                console.log(msg.data)
+                document.getElementById("title").innerHTML = msg.data.name;
+                document.getElementById("creator").innerHTML = `By ${msg.data.authorName}`;
+                document.getElementById("thumb").src = msg.data.imageUrl;
+            });
+        };
+        updateTile();
+        setInterval(updateTile,5000);
+    </script>
+
+<body>
+    <div id="container">
+        <img id="thumb" src="#" />
+        <div id="info">
+            <div id="intro">Now Exploring:</div>
+            <div id="title">Waiting for Player To Join a World</div>
+            <div id="creator">Waiting</div>
+        </div>
+</body>
+
+</html>
