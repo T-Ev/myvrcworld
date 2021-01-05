@@ -13,7 +13,7 @@ curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/installer-powe
 echo installing python...
 powershell -File installer-powershell2.ps1
 echo python installed successfully.
-refreshenv
+call refreshenv
 
 :HASPYTHON 
 echo haspython... continuing
