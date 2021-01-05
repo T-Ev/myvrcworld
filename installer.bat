@@ -1,21 +1,33 @@
 @echo off
 echo installer started
 echo installing chocolaty...
-@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+::@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 python --version
 if ERRORLEVEL 1 GOTO NOPYTHON  
 goto :HASPYTHON  
-:NOPYTHON  
+:NOPYTHON
 echo nopython
 echo downloading python via powershell
 curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/installer-powershell2.ps1"
 ::Powershell.exe -File X:installer-powershell.ps1 -version 3.9.1
 echo installing python...
 powershell -File installer-powershell2.ps1
-echo python installed successfully.
+::PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""%cd%\installer-powershell2.ps1""' -Verb RunAs}"
+echo python installer closed
 call refreshenv
+VERIFY > nul
+python --version
+if ERRORLEVEL 1 GOTO PYTHONFAIL
+goto :PYTHONSUCCESS
+:PYTHONFAIL
+echo --------
+echo ACTION REQURED: This script doesn't have permission to download python 3. Please download manually from https://www.python.org/downloads/ then rerun this installer.
+EXIT /B
 
-:HASPYTHON 
+:PYTHONSUCCESS
+echo python installed successfully
+
+:HASPYTHON
 echo haspython... continuing
 echo creating program folder
 mkdir myvrcworld
