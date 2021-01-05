@@ -6,6 +6,7 @@ goto :HASPYTHON
 :NOPYTHON  
 echo nopython
 echo downloading python via powershell
+curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/installer-powershell.ps1"
 Powershell.exe -File X:installer-powershell.ps1 -version 3.9.1
 
 :HASPYTHON 
