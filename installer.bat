@@ -6,7 +6,8 @@ goto :HASPYTHON
 :NOPYTHON  
 echo nopython
 echo downloading python via powershell
-curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/installer-powershell.ps1"
+curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/installer-powershell2.ps1"
+::Powershell.exe -File X:installer-powershell.ps1 -version 3.9.1
 Powershell.exe -File X:installer-powershell.ps1 -version 3.9.1
 
 :HASPYTHON 
@@ -36,6 +37,8 @@ echo downloading launcher
 curl -LJO "https://raw.githubusercontent.com/T-Ev/myvrcworld/main/launcher.bat"
 echo launching local server
 start cmd.exe /k "venv\Scripts\activate-install.bat"
+echo Ready to launch myvrcworld?
+TIMEOUT /T 6
 echo launching obs display
 python -m webbrowser http://localhost:5000/myvrcworld.html
 echo installation successful!
