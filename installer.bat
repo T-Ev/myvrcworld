@@ -1,13 +1,16 @@
 @echo off
 echo installer started
 echo checking for existing installation...
-if NOT EXISTS static GOTO correctdir
+if NOT EXIST static\ GOTO correctdir
+echo static found
 FOR /F %%i IN ('cd') DO set ADDRESS=%%~nxi
-if NOT %ADDRESS% == "myvrcworld" GOTO stayput
+echo %ADDRESS%
+if %ADDRESS% == "myvrcworld" GOTO stayput
+echo we are in myvrcworld
 cd ..
 :stayput
 :correctdir
-if EXISTS myvrcworld GOTO previousinstall
+if EXIST myvrcworld GOTO previousinstall
 echo fresh install
 echo creating program folder
 mkdir myvrcworld
