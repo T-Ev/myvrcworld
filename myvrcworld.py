@@ -23,7 +23,7 @@ isFirst = True
 full_path = "{}{}".format(_path, latest_edited_file)
 last_dirsize = len([name for name in os.listdir(_path) if os.path.isfile(os.path.join(_path, name))])
 #pattern = '(\d{4}.*)\sLog.*@@(\d),(\d),(\d),(.*)##'
-pattern = '(\d{4}.*)\sLog.*\[RoomManager\]\sJoining\s(wrld_.*):'
+pattern = '(\d{4}.*)\sLog.*\[.*\]\sJoining\s(wrld_.*):'
 currentworld="wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd"
 
 #init scheduler
